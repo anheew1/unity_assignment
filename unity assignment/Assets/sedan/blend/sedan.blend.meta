@@ -1,11 +1,85 @@
 fileFormatVersion: 2
 guid: 3948aaa3a4e260c4fbe49728ae230c18
 ModelImporter:
-  serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      74: 1989289236423521904
-    second: Default Take
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube_000
+    100002: Cube_001
+    100004: Cube_002
+    100006: Cube_003
+    100008: Cube_004
+    100010: Cube_005
+    100012: Cube_006
+    100014: Cube_007
+    100016: Cube_008
+    100018: Cube_015
+    100020: Cube_017
+    100022: Cube_019
+    100024: //RootNode
+    400000: Cube_000
+    400002: Cube_001
+    400004: Cube_002
+    400006: Cube_003
+    400008: Cube_004
+    400010: Cube_005
+    400012: Cube_006
+    400014: Cube_007
+    400016: Cube_008
+    400018: Cube_015
+    400020: Cube_017
+    400022: Cube_019
+    400024: //RootNode
+    2100000: Material__wheel_png
+    2100002: Material__wheel2_png
+    2100004: Material__wheel2_png_001
+    2100006: Material__glass_png
+    2100008: Material__dark_png
+    2100010: Material__UV1_png
+    2100012: Material_002__UV1_png
+    2100014: Material_003__UV1_png
+    2100016: Material__mirror_png
+    2100018: unnamed
+    2100020: None__UV2_png
+    2100022: Material_001
+    2300000: Cube_000
+    2300002: Cube_001
+    2300004: Cube_002
+    2300006: Cube_003
+    2300008: Cube_004
+    2300010: Cube_005
+    2300012: Cube_006
+    2300014: Cube_007
+    2300016: Cube_008
+    2300018: Cube_015
+    2300020: Cube_017
+    2300022: Cube_019
+    3300000: Cube_000
+    3300002: Cube_001
+    3300004: Cube_002
+    3300006: Cube_003
+    3300008: Cube_004
+    3300010: Cube_005
+    3300012: Cube_006
+    3300014: Cube_007
+    3300016: Cube_008
+    3300018: Cube_015
+    3300020: Cube_017
+    3300022: Cube_019
+    4300000: Cube_008
+    4300002: Cube_007
+    4300004: Cube_002
+    4300006: Cube_000
+    4300008: Cube_019
+    4300010: Cube_015
+    4300012: Cube_003
+    4300014: Cube_006
+    4300016: Cube_004
+    4300018: Cube_001
+    4300020: Cube_005
+    4300022: Cube_017
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -40,8 +114,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -49,32 +121,27 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -84,7 +151,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
