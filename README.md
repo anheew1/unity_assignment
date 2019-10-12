@@ -18,3 +18,5 @@
 
 # 화면 구성
 
+![과제1캡처1](https://user-images.githubusercontent.com/28583561/66697827-18a36100-ed14-11e9-8173-cc6f3b61e60e.JPG)
+![과제1캡처2](https://user-images.githubusercontent.com/28583561/66697831-1e994200-ed14-11e9-9ccc-abc45be2e365.JPG)
