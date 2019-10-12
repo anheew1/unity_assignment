@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    private TextMesh textDistance; // text at MainCamera
-    private TextMesh textDistance2; // <-이런식으로 변수 지으면 안됨 / text at flagCamera 
+    private TextMesh textMain; // text at MainCamera
+    private TextMesh textFlag; // <-이런식으로 변수 지으면 안됨 / text at flagCamera 
     private GameObject flag;
     private Vector3 offset;
     private Rigidbody rb;
@@ -25,8 +25,8 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textDistance = (GameObject.Find("textDistance") as GameObject).GetComponent<TextMesh>();
-        textDistance2 = (GameObject.Find("textDistance2") as GameObject).GetComponent<TextMesh>();
+        textMain = (GameObject.Find("textMain") as GameObject).GetComponent<TextMesh>();
+        textFlag = (GameObject.Find("textFlag") as GameObject).GetComponent<TextMesh>();
         flag = GameObject.FindGameObjectWithTag("Flag");
         showDistance();
         rb = GetComponent<Rigidbody>();
@@ -104,12 +104,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (dis < 20)
         {
             dis = -dis;
-            textDistance.text = dis.ToString();
-            textDistance2.text = dis.ToString();
+            textMain.text = dis.ToString();
+            textFlag.text = dis.ToString();
         }
         else
         {
-            textDistance2.text = "OOPS!";
+            textFlag.text = "OOPS!";
         }
     }
    
