@@ -14,12 +14,12 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Vector3 mousePrevPos;
     private Vector3 mouseCurPos;
-    private CameraManager cameraManager;
+    private CameraManager cameraManager; // scripts 안에 구현되어 있음
 
     float coordZ;
     float coordY;
     float speed;
-    bool isMouseUp;
+    bool isPlayerDrag;
 
 
     // Start is called before the first frame update
@@ -30,14 +30,15 @@ public class PlayerBehaviour : MonoBehaviour
         flag = GameObject.FindGameObjectWithTag("Flag");
         showDistance();
         rb = GetComponent<Rigidbody>();
-        isMouseUp = false;
+        isPlayerDrag = true;
         speed = 0;
         cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
     }
     private void FixedUpdate() // 물리효과가 계산될 때 마다 호출
     {
-        if (isMouseUp && transform.position.x > (float)5.9)
+        if (isPlayerDrag && transform.position.x > (float)5.9)
         {
+            isPlayerDrag = false;
             cameraManager.flagCameraOn();
         }
 
@@ -47,6 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!isPlayerDrag) return;
+
         Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(transform.position);
         coordZ = playerScreenPos.z;
         coordY = playerScreenPos.y;
@@ -60,6 +63,9 @@ public class PlayerBehaviour : MonoBehaviour
     
     private void OnMouseDrag()
     {
+        if (!isPlayerDrag) return;
+
+
         transform.position = getMouseWorldPos() + offset;
 
         mouseCurPos = Input.mousePosition;
@@ -72,7 +78,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnMouseUp()
     {
-        isMouseUp = true;
+        if (!isPlayerDrag) return;
         Debug.Log("speed " + speed);
         rb.AddForce(new Vector3(speed * 100, 0, 0));
 
