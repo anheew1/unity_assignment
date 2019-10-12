@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class PlayerBehaviour : MonoBehaviour
 {
-    private TextMesh textDistance;
+    private TextMesh textDistance; // text at MainCamera
+    private TextMesh textDistance2; // <-이런식으로 변수 지으면 안됨 / text at flagCamera 
     private GameObject flag;
     private Vector3 offset;
     private Rigidbody rb;
-
     private Vector3 mousePrevPos;
     private Vector3 mouseCurPos;
+    private CameraManager cameraManager;
+
     float coordZ;
     float coordY;
     float speed;
@@ -21,29 +26,22 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         textDistance = (GameObject.Find("textDistance") as GameObject).GetComponent<TextMesh>();
+        textDistance2 = (GameObject.Find("textDistance2") as GameObject).GetComponent<TextMesh>();
         flag = GameObject.FindGameObjectWithTag("Flag");
         showDistance();
         rb = GetComponent<Rigidbody>();
         isMouseUp = false;
         speed = 0;
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
     }
     private void FixedUpdate() // 물리효과가 계산될 때 마다 호출
     {
-        if (!isMouseUp) return;
+        if (isMouseUp && transform.position.x > (float)5.9)
+        {
+            cameraManager.flagCameraOn();
+        }
 
-        rb.velocity = new Vector3(speed, 0, 0);
-        if(speed >0.1)
-        {
-            speed -= (float) 0.1;
-        }
-        else if(speed <-0.1)
-        {
-            speed += (float)0.1;
-        }
-        else  // -0.1 < speed <0.1 
-        {
-            speed = 0;
-        }
+        showDistance();
         
     }
 
@@ -60,7 +58,6 @@ public class PlayerBehaviour : MonoBehaviour
     }
     
     
-    // Update is called once per frame
     private void OnMouseDrag()
     {
         transform.position = getMouseWorldPos() + offset;
@@ -68,6 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
         mouseCurPos = Input.mousePosition;
         speed = mouseCurPos.x - mousePrevPos.x;
         mousePrevPos = mouseCurPos;
+
         
         showDistance();
     }
@@ -76,7 +74,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         isMouseUp = true;
         Debug.Log("speed " + speed);
-        
+        rb.AddForce(new Vector3(speed * 100, 0, 0));
+
     }
 
     Vector3 getMouseWorldPos()
@@ -97,6 +96,7 @@ public class PlayerBehaviour : MonoBehaviour
         float text = playerPos.x - flagPos.x;
         text += (float)0.95;
         textDistance.text = text.ToString();
+        textDistance2.text = text.ToString();
     }
    
 }
