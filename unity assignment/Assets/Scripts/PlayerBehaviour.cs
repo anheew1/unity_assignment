@@ -8,13 +8,13 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     private TextMesh textMain; // text at MainCamera
-    private TextMesh textFlag; // <-이런식으로 변수 지으면 안됨 / text at flagCamera 
+    private TextMesh textFlag; //  text at flagCamera 
     private GameObject flag;
     private Vector3 offset;
     private Rigidbody rb;
     private Vector3 mousePrevPos;
     private Vector3 mouseCurPos;
-    private CameraManager cameraManager; // scripts 안에 구현되어 있음
+    private CameraManager cameraManager; // CameraManager is implemented at /Assets/Scripts  ( CameraManager will switch camera)
 
     float coordZ;
     float coordY;
@@ -36,9 +36,9 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void FixedUpdate() // 물리효과가 계산될 때 마다 호출
     {
-        if (isPlayerDrag && transform.position.x > (float)5.9)
+        if (isPlayerDrag && transform.position.x > (float)5.9) // if car is out of main Camera, camera will switched to Flag Camera
         {
-            isPlayerDrag = false;
+            isPlayerDrag = false; // if car is out of main Camera, player can not be dragged
             cameraManager.flagCameraOn();
         }
 
@@ -46,22 +46,31 @@ public class PlayerBehaviour : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    private void OnMouseDown() // called if press mouse left button at player
     {
         if (!isPlayerDrag) return;
+
+        /*
+         * 플레이어가 드래그 될 수 있도록 하기 위한 사전작업
+         * offset을 구해 player가 마우스를 제대로 따라갈수 있도록 함.
+         */
 
         Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(transform.position);
         coordZ = playerScreenPos.z;
         coordY = playerScreenPos.y;
         
-        offset = transform.position - getMouseWorldPos();
+        offset = transform.position - getMouseWorldPos(); 
+
+        /*
+         * 마우스 속도를 알기 위한 사전작업
+         */
 
         mousePrevPos = Input.mousePosition;
         mousePrevPos.z = coordZ;
     }
     
     
-    private void OnMouseDrag()
+    private void OnMouseDrag() // called if player is dragging
     {
         if (!isPlayerDrag) return;
 
@@ -76,7 +85,7 @@ public class PlayerBehaviour : MonoBehaviour
         showDistance();
     }
 
-    private void OnMouseUp()
+    private void OnMouseUp() // called if release button at player
     {
         if (!isPlayerDrag) return;
         Debug.Log("speed " + speed);
@@ -84,18 +93,18 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
 
-    Vector3 getMouseWorldPos()
+    Vector3 getMouseWorldPos() // return mouse position at world point
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = coordZ;
-        mousePos.y = coordY;
+        mousePos.z = coordZ; // player position.y at screen
+        mousePos.y = coordY; // player position.z at screen
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
         return mouseWorldPos;
     }
 
 
 
-    void showDistance()
+    void showDistance() // change 3Dtexts to show distance between player and flag
     {
         Vector3 playerPos = transform.position;
         Vector3 flagPos = flag.transform.position;

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : MonoBehaviour // just simple switching camera
 {
-    // Start is called before the first frame update
     public Camera MainCamera;
     public Camera FlagCamera;
     void Start()
@@ -12,7 +11,6 @@ public class CameraManager : MonoBehaviour
         mainCameraOn();
     }
 
-    // Update is called once per frame
     public void mainCameraOn()
     {
         MainCamera.enabled = true;
@@ -20,7 +18,6 @@ public class CameraManager : MonoBehaviour
     }
     public void flagCameraOn()
     {
-        Debug.Log("flag!");
         FlagCamera.enabled = true;
         MainCamera.enabled = false;
         
