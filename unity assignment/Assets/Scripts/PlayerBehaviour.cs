@@ -99,10 +99,18 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Vector3 playerPos = transform.position;
         Vector3 flagPos = flag.transform.position;
-        float text = playerPos.x - flagPos.x;
-        text += (float)0.95;
-        textDistance.text = text.ToString();
-        textDistance2.text = text.ToString();
+        float dis = playerPos.x - flagPos.x;
+        dis += (float)0.95;
+        if (dis < 20)
+        {
+            dis = -dis;
+            textDistance.text = dis.ToString();
+            textDistance2.text = dis.ToString();
+        }
+        else
+        {
+            textDistance2.text = "OOPS!";
+        }
     }
    
 }
