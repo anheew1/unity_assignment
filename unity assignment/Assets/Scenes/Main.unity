@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 252835868}
   - component: {fileID: 252835867}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,7 +501,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37, y: 2.3, z: 4}
   m_LocalScale: {x: 144.58278, y: 10, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 285599448}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -518,7 +519,7 @@ GameObject:
   - component: {fileID: 285599446}
   - component: {fileID: 285599445}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: BackgroundSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,12 +592,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285599444}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -29.66, y: 3.23, z: -0.89}
-  m_LocalScale: {x: 0.97102904, y: 1, z: 2.201319}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.46105075, y: 0.09300001, z: -4.89}
+  m_LocalScale: {x: 0.097102955, y: 0.006916456, z: 2.201319}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 252835870}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &744832214
 GameObject:
@@ -1209,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929487121
 GameObject:
